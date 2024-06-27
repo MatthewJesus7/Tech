@@ -11,7 +11,7 @@ function CardSection() {
             <Card></Card>
             <Card></Card>
             <Card></Card>
-            <Button customClass="absolute top-5 right-5" text="seta"></Button>
+            <Button customClass="absolute top-1/3 translate-y-1/2 right-10 bg-black rounded-full w-12 h-12 text-white " text="seta"></Button>
         </Section>
     )
 }
