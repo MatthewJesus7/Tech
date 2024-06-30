@@ -1,9 +1,9 @@
-import React, { Children, useState } from 'react';
+import React, { useState } from 'react';
 import Container from '../layout/Container';
 import Card from './Card';
 import CarouselButton from "../items/Buttons/CarouselButton";
 
-function Carousel({ items, props}) {
+function Carousel({ items }) {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const itemWidth = 256;
@@ -39,15 +39,16 @@ function Carousel({ items, props}) {
             onMouseOut={handleMouseOut}
             className="w-full relative">
 
-                <div className="flex overflow-hidden"
+                <div className="flex"
                 style={{ transform: `translateX(-${currentIndex * (itemWidth + marginWidth)}px)` }}>
 
                     {items.map((item, index) => (
-
-                        <Card key={index}
-                            Children={props.child}>
-                            {props.child}
-                        </Card>
+                        <Card 
+                        key={index}
+                        title={item.title}
+                        price={item.price}
+                        backgroundImage={item.backgroundImage}
+                        />
                     ))}
 
                 </div>

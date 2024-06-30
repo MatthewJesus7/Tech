@@ -5,12 +5,32 @@ import Card from "../layout/Card"
 function CardSection() {
 
     const carouselItems = [
-                {card: <Card>a</Card>},
-                {card: <Card>b</Card>},
-                {card: <Card>c</Card>},
-                {card: <Card>d</Card>},
-                {card: <Card>e</Card>},
-    ]
+        {
+            title: "Item 1",
+            price: "$10.00",
+            backgroundImage: "url('/path/to/image1.jpg')"
+        },
+        {
+            title: "Item 2",
+            price: "$20.00",
+            backgroundImage: "url('/path/to/image2.jpg')"
+        },
+        {
+            title: "Item 3",
+            price: "$30.00",
+            backgroundImage: "url('/path/to/image3.jpg')"
+        },
+        {
+            title: "Item 4",
+            price: "$40.00",
+            backgroundImage: "url('/path/to/image4.jpg')"
+        },
+        {
+            title: "Item 5",
+            price: "$50.00",
+            backgroundImage: "url('/path/to/image5.jpg')"
+        }
+    ];
 
     return( 
         <Section>
