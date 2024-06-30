@@ -1,14 +1,10 @@
 import Container from "../../layout/Container"
 
-function CarouselButton({ onRight, onLeft }) {
+function CarouselButton({ onRight, onLeft, customclass, text }) {
     return(
         <Container>
-            <button onClick={onLeft} className="carousel_button left-5">
-                <p>&#10094;</p>
-            </button>
-
-            <button onClick={onRight} className="carousel_button right-5">
-                <p>&#10095;</p>
+            <button onClick={onLeft || onRight} className={`carousel_button ${customclass}`}>
+                <p>{text}</p>
             </button>
         </Container>
     )

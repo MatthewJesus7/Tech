@@ -32,7 +32,7 @@ function Carousel({ items }) {
     }
 
     return(
-        <Container customclass=" bg-blue-500 w-[109.7%] overflow-hidden">
+        <Container customclass=" bg-blue-500 w-[110%] overflow-x-hidden">
 
             <div
             onMouseOver={handleMouseOver}
@@ -53,9 +53,12 @@ function Carousel({ items }) {
 
                 </div>
 
-                {showButton && <CarouselButton
-                onLeft={goToPreviousSlide}
-                onRight={goToNextSlide}/>}
+                {showButton && currentIndex > 0 && (
+                    <CarouselButton customclass="left-5" text="&#10094;" onLeft={goToPreviousSlide} />
+                )}
+                {showButton && currentIndex < items.length - 1 && (
+                    <CarouselButton customclass="right-5" text="&#10095;" onRight={goToNextSlide} />
+                )}
 
             </div>
 
