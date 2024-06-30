@@ -77,7 +77,7 @@ function Carousel({ items }) {
 
 
     return(
-        <Container customclass=" w-[110%] overflow-x-hidden pointer-events-auto p-5 px-2.5 ">
+        <Container customclass=" w-[111%] overflow-x-hidden pointer-events-auto p-5 px-2.5 -ml-2.5">
 
             <div
             onMouseOver={handleMouseOver}
@@ -86,7 +86,7 @@ function Carousel({ items }) {
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
-            className=" w-full relative cursor-pointer pointer-events-auto">
+            className=" w-full relative cursor-pointer pointer-events-auto ">
 
                 <div className="flex transition-transform duration-500"
                 style={{ transform: `translateX(-${currentIndex * (itemWidth + marginWidth)}px)` }}>

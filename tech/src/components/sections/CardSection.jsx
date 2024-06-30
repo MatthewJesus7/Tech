@@ -6,8 +6,8 @@ function CardSection() {
 
     const carouselItems = [
         {
-            title: "Item 1",
-            price: "$10.00",
+            title: "celular x",
+            price: "a partir de $10.00",
             backgroundImage: "url('/path/to/image1.jpg')"
         },
         {
@@ -33,9 +33,9 @@ function CardSection() {
     ];
 
     return( 
-        <Section customclass=" bg-gray-100 ">
+        <Section customclass="bg-gray-50 py-3 ">
 
-            <h1>Titulo</h1>
+            <h2 className="text-3xl font-bold">Veja Nossos Favoritos</h2>
 
             <Carousel items={carouselItems}></Carousel>
         </Section>
