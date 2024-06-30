@@ -33,7 +33,7 @@ function CardSection() {
     ];
 
     return( 
-        <Section customclass=" bg-gray-200 ">
+        <Section customclass=" bg-gray-100 ">
 
             <h1>Titulo</h1>
 
