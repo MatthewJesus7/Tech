@@ -1,9 +1,17 @@
-
-
-function Card(props) {
+function Card({ title, price, backgroundImage, customclass, children, link, target, rel }) {
     return(
-        <div className="min-w-64 h-96 shadow-lg border rounded-xl mr-10">{props.children}</div>
-    )
+        <a href={link} target={target} rel={rel}>
+            <div
+                className={`card bg-white ${customclass}`}
+                style={{ backgroundImage: backgroundImage, backgroundSize: 'cover', backgroundPosition: 'center' }}
+            >
+                        <h3 className="text-xl">{title}
+                        </h3>
+                        <p className="text-lg">{price} </p>
+                        {children}
+            </div>
+        </a>
+    );
 }
 
-export default Card
+export default Card;
