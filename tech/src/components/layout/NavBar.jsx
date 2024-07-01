@@ -1,4 +1,5 @@
 import Link from '../items/Link'
+import Container from './Container'
 
 function NavBar() {
     return(
