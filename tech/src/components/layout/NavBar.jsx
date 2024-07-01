@@ -1,7 +1,8 @@
 import Link from '../items/Link'
+import Button from '../items/Buttons/Button'
 import Container from './Container'
 
-function NavBar( handleOnClick ) {
+function NavBar({ handleOnClick }) {
 
     return(
         <nav className="h-10 justify-center content-center border px-5">
@@ -19,8 +20,8 @@ function NavBar( handleOnClick ) {
                     <li>
                         <Link href="#" target="_blank" text="Sobre"></Link>
                     </li>
-                    <li onClick={handleOnClick}>
-                        <p >Pesquisar</p>
+                    <li>
+                        <Button onClick={handleOnClick} text="pesquisar"></Button>
                     </li>
                     <li>
                         <Link href="#" target="_blank" text="Carrinho"></Link>

@@ -6,17 +6,39 @@ import { useState } from "react";
 
 function App() {
   
-  const [aparecerMenu, setAparecerMenu] = useState(false)
+  const [isAnimating, setIsAnimating] = useState(false)
+  const [aparecerMenu, setAparecerMenu] = useState(false);
 
-  function showMenu() {
-    setAparecerMenu(true)
-    console.log('Menu aparecendo!')
-  }
+  
+  const toggleMenu = () => {
+    setAparecerMenu(prevState => {
+      const newState = !prevState;
+  
+      if (newState) {
+        setIsAnimating(true);
+        setTimeout(() => {
+          setAparecerMenu(false);
+        }, 1000);
+        
+      } else {
+        setTimeout(() => {
+          setIsAnimating(true);
+        }, 0);
+        setTimeout(() => {
+          setIsAnimating(false);
+        }, 1000);
+      }
+  
+      return newState;
+    });
+  };
 
   return (
     <div className="App overflow-x-hidden">
-      <NavBar handleOnClick={showMenu}></NavBar>
-      {aparecerMenu && <Menu></Menu>}
+      <NavBar handleOnClick={toggleMenu}></NavBar>
+
+      {aparecerMenu && <Menu menuVisible={toggleMenu}></Menu>}
+
       <CardSection></CardSection>
     </div>
   );
