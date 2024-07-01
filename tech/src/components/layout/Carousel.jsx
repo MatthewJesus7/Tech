@@ -50,8 +50,6 @@ function Carousel({ items }) {
       const handleTouchStart = (e) => {
         touchStartX.current = e.touches[0].clientX;
         carouselRef.current.style.transition = 'none'; // Remove a transição durante o swipe
-
-        console.log('fui clicado!')
       };
     
       const handleTouchMove = (e) => {
@@ -59,8 +57,6 @@ function Carousel({ items }) {
         const diff = touchStartX.current - currentX;
     
         carouselRef.current.style.transform = `translateX(-${currentIndex * 100 + diff}px)`;
-
-        console.log('fui arrastado!')
       };
     
       const handleTouchEnd = () => {
@@ -74,8 +70,6 @@ function Carousel({ items }) {
     
         carouselRef.current.style.transition = ''; // Reaplica a transição após o swipe
         carouselRef.current.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-        console.log('fui desclicado!')
       };
     
 

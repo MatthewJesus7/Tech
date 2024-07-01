@@ -1,6 +1,6 @@
-function Link({ text, href, target, rel }) {
+function Link({ text, href, target, rel, ionClick }) {
     return(
-            <a
+            <a className="hover:underline hover:cursor-pointer"
             href={href}
             target={target}
             rel={rel}>
