@@ -6,6 +6,7 @@ function CardSection() {
 
     const carouselItems = [
         {
+            // link: "#",
             title: "celular x",
             price: "a partir de $10.00",
             backgroundImage: "url('/path/to/image1.jpg')"

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import Container from '../layout/Container';
 import Card from './Card';
 import CarouselButton from "../items/Buttons/CarouselButton";
@@ -12,8 +12,8 @@ function Carousel({ items }) {
     const marginWidth = 20;
     
     const carouselRef = useRef(null);
-    const touchStartX = useRef(null);
-    const touchEndX = useRef(null);
+    const touchStartX = useRef(0);
+    const touchEndX = useRef(0);
 
     const goToPreviousSlide = () => {
         const index = (currentIndex - 1 + items.length) % items.length;
@@ -59,6 +59,8 @@ function Carousel({ items }) {
         const diff = touchStartX.current - currentX;
     
         carouselRef.current.style.transform = `translateX(-${currentIndex * 100 + diff}px)`;
+
+        console.log('fui arrastado!')
       };
     
       const handleTouchEnd = () => {
@@ -72,28 +74,34 @@ function Carousel({ items }) {
     
         carouselRef.current.style.transition = ''; // Reaplica a transição após o swipe
         carouselRef.current.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        console.log('fui desclicado!')
       };
     
 
 
     return(
-        <Container customclass=" w-[111%] overflow-x-hidden pointer-events-auto p-5 px-2.5 -ml-2.5">
+        <Container customclass=" w-[110%] overflow-x-hidden pointer-events-auto p-5 px-2.5 -ml-2.5">
 
             <div
             onMouseOver={handleMouseOver}
             onMouseOut={handleMouseOut}
-            ref={carouselRef} 
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
             className=" w-full relative cursor-pointer pointer-events-auto ">
 
                 <div className="flex transition-transform duration-500"
-                style={{ transform: `translateX(-${currentIndex * (itemWidth + marginWidth)}px)` }}>
+                style={{ transform: `translateX(-${currentIndex * (itemWidth + marginWidth)}px)` }}
+                ref={carouselRef} 
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+                >
 
                     {items.map((item, index) => (
                         <Card 
                         key={index}
+                        link={item.link}
+                        target={item.target}
+                        rel={item.rel}
                         title={item.title}
                         price={item.price}
                         backgroundImage={item.backgroundImage}
@@ -103,10 +111,10 @@ function Carousel({ items }) {
                 </div>
 
                 {showButton && currentIndex > 0 && (
-                    <CarouselButton customclass="left-5" text="&#10094;" onLeft={goToPreviousSlide} />
+                    <CarouselButton customclass="left-5 " text="&#10094;" onLeft={goToPreviousSlide} />
                 )}
                 {showButton && currentIndex < items.length - 1 && (
-                    <CarouselButton customclass="right-5" text="&#10095;" onRight={goToNextSlide} />
+                    <CarouselButton customclass="right-5 " text="&#10095;" onRight={goToNextSlide} />
                 )}
 
             </div>
