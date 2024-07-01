@@ -1,9 +1,12 @@
-// import styles from './index.css'
+import CardSection from "./components/sections/CardSection"
+
+import NavBar from "./components/layout/NavBar";
 
 function App() {
   return (
-    <div className="App">
-      
+    <div className="App overflow-x-hidden">
+      <NavBar></NavBar>
+      <CardSection></CardSection>
     </div>
   );
 }
