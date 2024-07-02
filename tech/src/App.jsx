@@ -1,3 +1,4 @@
+import HeroSection from "./components/sections/HeroSection"
 import CardSection from "./components/sections/CardSection"
 
 import NavBar from "./components/layout/NavBar";
@@ -42,7 +43,7 @@ function App() {
                 : ' -translate-y-1 bg-white h-0 border-none '
         }`}
       />
-      
+      <HeroSection></HeroSection>
       <CardSection></CardSection>
     </div>
   );

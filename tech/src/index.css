@@ -51,4 +51,10 @@
         @apply text-3xl;
         @apply font-bold;
     }
+
+    .glass {
+        background: rgba( 255, 255, 255, 0.85 );
+        backdrop-filter: blur( 20px );
+        -webkit-backdrop-filter: blur( 20px );
+    }
 }
