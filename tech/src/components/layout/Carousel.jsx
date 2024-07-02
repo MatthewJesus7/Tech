@@ -1,4 +1,6 @@
 import React, { useState, useRef } from 'react';
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+
 import Container from '../layout/Container';
 import Card from './Card';
 import CarouselButton from "../items/Buttons/CarouselButton";
@@ -91,7 +93,7 @@ function Carousel({ items }) {
                 >
 
                     {items.map((item, index) => (
-                        <Card 
+                        <Card
                         key={index}
                         link={item.link}
                         target={item.target}
@@ -105,10 +107,10 @@ function Carousel({ items }) {
                 </div>
 
                 {showButton && currentIndex > 0 && (
-                    <CarouselButton customclass="left-5 " text="&#10094;" onLeft={goToPreviousSlide} />
+                    <CarouselButton customclass="left-5 " text={<IoIosArrowBack/>} onLeft={goToPreviousSlide} />
                 )}
                 {showButton && currentIndex < items.length - 1 && (
-                    <CarouselButton customclass="right-5 " text="&#10095;" onRight={goToNextSlide} />
+                    <CarouselButton customclass="right-5 " text={<IoIosArrowForward/>} onRight={goToNextSlide} />
                 )}
 
             </div>

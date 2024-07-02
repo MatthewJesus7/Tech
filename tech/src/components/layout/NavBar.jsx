@@ -1,6 +1,7 @@
 import Link from '../items/Link'
-import Button from '../items/Buttons/Button'
 import Container from './Container'
+
+import { IoIosSearch } from "react-icons/io";
 
 function NavBar({ handleOnClick }) {
 
@@ -21,9 +22,9 @@ function NavBar({ handleOnClick }) {
                         <Link href="#" target="_blank" text="Sobre"></Link>
                     </li>
                     <li>
-                        <Button onClick={handleOnClick} text="pesquisar">
-                            {/* {aparecerMenu ? 'Fechar Menu' : 'Abrir Menu'} */}
-                        </Button>
+                        <Link onClick={handleOnClick} 
+                        text={<IoIosSearch/>}
+                        ></Link>
                     </li>
                     <li>
                         <Link href="#" target="_blank" text="Carrinho"></Link>

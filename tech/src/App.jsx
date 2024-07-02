@@ -38,10 +38,11 @@ function App() {
                     ? 'translate-y-0 bg-white h-96 '
                     : 'translate-y-0 h-96 '
                 : isAnimating
-                ? '  h-10 border-none '
-                : ' -translate-y-2 bg-white h-1 border-none '
+                ? '  h-10 border-none -translate-y-1 '
+                : ' -translate-y-1 bg-white h-0 border-none '
         }`}
       />
+      
       <CardSection></CardSection>
     </div>
   );
