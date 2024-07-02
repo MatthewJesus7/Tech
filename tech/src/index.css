@@ -31,7 +31,15 @@
         @apply hover:scale-105; 
     }
 
-    .card_mini {
+    .medium_card {
+        @apply size-44;
+        @apply shadow-lg; 
+        @apply border rounded-xl; 
+        @apply mr-5; 
+        @apply p-1.5;
+    }
+
+    .small_card {
         @apply size-16;
         @apply shadow-lg; 
         @apply border rounded-xl; 

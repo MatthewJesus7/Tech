@@ -77,7 +77,7 @@ function Carousel({ items }) {
 
 
     return(
-        <Container customclass=" w-[110%] overflow-x-hidden pointer-events-auto p-5 px-2.5 -ml-2.5">
+        <Container customclass=" w-[109%] overflow-x-hidden pointer-events-auto p-5 px-2.5 -ml-2.5 ">
 
             <div
             onMouseOver={handleMouseOver}
@@ -94,6 +94,7 @@ function Carousel({ items }) {
 
                     {items.map((item, index) => (
                         <Card
+                        type={item.type}
                         key={index}
                         link={item.link}
                         target={item.target}

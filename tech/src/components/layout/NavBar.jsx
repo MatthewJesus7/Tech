@@ -6,11 +6,11 @@ import { IoIosSearch } from "react-icons/io";
 function NavBar({ handleOnClick }) {
 
     return(
-        <nav className=" h-10 justify-center content-center border px-5 ">
+        <nav className="h-10 justify-center content-center border">
 
-            <Container >
+            <Container customclass=" px-[5%] ">
 
-                <ul className="flex justify-between w-full z-50 ">
+                <ul className="flex justify-between w-full">
 
                     <li>
                         <Link href="#" text="DLM"></Link>
@@ -21,13 +21,16 @@ function NavBar({ handleOnClick }) {
                     <li>
                         <Link href="#" target="_blank" text="Sobre"></Link>
                     </li>
+                    
+                    <li>
+                        <Link href="#" target="_blank" text="Carrinho"></Link>
+                    </li>
+
                     <li>
                         <Link onClick={handleOnClick} 
                         text={<IoIosSearch/>}
+                        textCustom=" text-lg pt-1 "
                         ></Link>
-                    </li>
-                    <li>
-                        <Link href="#" target="_blank" text="Carrinho"></Link>
                     </li>
                 </ul>
             </Container>
