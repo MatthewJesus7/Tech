@@ -5,11 +5,11 @@ import Container from './Container'
 function NavBar({ handleOnClick }) {
 
     return(
-        <nav className="h-10 justify-center content-center border px-5">
+        <nav className=" h-10 justify-center content-center border px-5 ">
 
-            <Container>
+            <Container >
 
-                <ul className="flex justify-between w-full">
+                <ul className="flex justify-between w-full z-50 ">
 
                     <li>
                         <Link href="#" text="DLM"></Link>
@@ -21,7 +21,9 @@ function NavBar({ handleOnClick }) {
                         <Link href="#" target="_blank" text="Sobre"></Link>
                     </li>
                     <li>
-                        <Button onClick={handleOnClick} text="pesquisar"></Button>
+                        <Button onClick={handleOnClick} text="pesquisar">
+                            {/* {aparecerMenu ? 'Fechar Menu' : 'Abrir Menu'} */}
+                        </Button>
                     </li>
                     <li>
                         <Link href="#" target="_blank" text="Carrinho"></Link>

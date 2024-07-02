@@ -1,18 +1,11 @@
 import Button from "../items/Buttons/Button"
 
-function Menu({ isAnimating, menuVisible }) {
+function Menu({  handleOnClick, customclass }) {
     return(
-        <menu className={` transition-all 
-        ${isAnimating ?
-        `'bg-red-500'`
-        : 'h-96'
-        }
-        ${menuVisible ? 'block' : 'hidden'}
-        `} >
+        <menu className={`fixed top-11 left-0 w-full z-10 border shadow-xl overflow-hidden ${customclass}`}>
 
-
-            <Button onClick={menuVisible} text="x"></Button>
-            <input type="text" />
+            <Button onClick={handleOnClick} text="x"></Button>
+            {/* <input type="text" /> */}
             <h2>Nossos produtos</h2>
             <ul>
                 <li>a</li>

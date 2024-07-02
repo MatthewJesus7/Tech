@@ -2,43 +2,46 @@ import CardSection from "./components/sections/CardSection"
 
 import NavBar from "./components/layout/NavBar";
 import Menu from "./components/layout/Menu";
+
 import { useState } from "react";
 
 function App() {
-  
-  const [isAnimating, setIsAnimating] = useState(false)
+
+  const [isAnimating, setIsAnimating] = useState(false);
   const [aparecerMenu, setAparecerMenu] = useState(false);
 
-  
   const toggleMenu = () => {
-    setAparecerMenu(prevState => {
-      const newState = !prevState;
-  
-      if (newState) {
-        setIsAnimating(true);
-        setTimeout(() => {
-          setAparecerMenu(false);
-        }, 1000);
-        
-      } else {
-        setTimeout(() => {
+      if (aparecerMenu) {
           setIsAnimating(true);
-        }, 0);
-        setTimeout(() => {
-          setIsAnimating(false);
-        }, 1000);
+          setTimeout(() => {
+              setIsAnimating(false);
+              setAparecerMenu(false);
+          }, 500);
+      } else {
+          setAparecerMenu(true);
+          setTimeout(() => {
+              setIsAnimating(true);
+          }, 0);
       }
-  
-      return newState;
-    });
   };
+
 
   return (
     <div className="App overflow-x-hidden">
       <NavBar handleOnClick={toggleMenu}></NavBar>
 
-      {aparecerMenu && <Menu menuVisible={toggleMenu}></Menu>}
-
+      <Menu
+        handleOnClick={toggleMenu}
+        customclass={` transform transition-all duration-1000 ${
+            aparecerMenu
+                ? isAnimating
+                    ? 'translate-y-0 bg-white h-96 '
+                    : 'translate-y-0 h-96 '
+                : isAnimating
+                ? '  h-10 border-none '
+                : ' -translate-y-2 bg-white h-1 border-none '
+        }`}
+      />
       <CardSection></CardSection>
     </div>
   );
