@@ -5,7 +5,7 @@ import Container from '../layout/Container';
 import Card from './Card';
 import CarouselButton from "../items/Buttons/CarouselButton";
 
-function Carousel({ items }) {
+function Carousel({ items, customclass }) {
 
     // Botões de mover
 
@@ -77,7 +77,7 @@ function Carousel({ items }) {
 
 
     return(
-        <Container customclass=" w-[109%] overflow-x-hidden pointer-events-auto p-5 px-2.5 -ml-2.5 ">
+        <Container customclass={` w-[109%] overflow-x-hidden pointer-events-auto p-5 px-2.5 -ml-2.5 ${customclass}`}>
 
             <div
             onMouseOver={handleMouseOver}
@@ -95,6 +95,7 @@ function Carousel({ items }) {
                     {items.map((item, index) => (
                         <Card
                         type={item.type}
+                        typeInner={item.typeInner}
                         key={index}
                         link={item.link}
                         target={item.target}

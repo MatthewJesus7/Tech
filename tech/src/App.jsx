@@ -1,4 +1,5 @@
 import CardSection from "./components/sections/CardSection"
+import ProductTypeSection from "./components/sections/ProductTypeSection";
 
 import NavBar from "./components/layout/NavBar";
 import Menu from "./components/layout/Menu";
@@ -44,6 +45,7 @@ function App() {
       />
       
       <CardSection></CardSection>
+      <ProductTypeSection></ProductTypeSection>
     </div>
   );
 }

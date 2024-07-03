@@ -42,13 +42,14 @@
     .small_card {
         @apply size-16;
         @apply shadow-lg; 
-        @apply border rounded-xl; 
+        @apply border rounded-md; 
         @apply mr-5; 
-        @apply p-1.5;
+        @apply p-px;
     }
 
     h2 {
         @apply text-3xl;
         @apply font-bold;
     }
+
 }
