@@ -17,7 +17,7 @@ function HeroSection() {
                 <div className=" absolute top-10 right-0 md:static w-full h-[560px] sm:size-[560px] bg-opacity-75 bg-black flex justify-center items-center
              ">
 
-                    <button className=" bg-black w-10">
+                    <button className=" mt-32 p-3 px-4 rounded-3xl border hover:scale-105 hover:ease-in-out hover:duration-300">
 
                         saiba mais
                     </button>
