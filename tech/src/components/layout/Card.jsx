@@ -5,7 +5,9 @@ function Card({ title, price, backgroundImage, customclass, link, target, rel, t
     function typeInnerCard() {
         if(typeInner === 'a') {
             console.log('funciona')
+            return true
         } else {
+            // 192.168.0.119
             console.log('não funciona')
         }
     }
