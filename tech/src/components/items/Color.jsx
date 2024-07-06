@@ -1,6 +1,6 @@
 function Color({ color }) {
     return(
-        <div className={`size-4 rounded-full ${color}`}>
+        <div className={`size-4 rounded-full mr-3 bg-red-500 ${color}`}>
         </div>
     )
 }

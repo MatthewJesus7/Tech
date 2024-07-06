@@ -52,4 +52,12 @@
         @apply font-bold;
     }
 
+    .product { 
+        @apply flex;
+        @apply flex-col;
+        @apply justify-end;
+        @apply w-full;
+        @apply h-full;
+        /* background-color: rgba(0, 0, 0, 0.200); */
+    }
 }

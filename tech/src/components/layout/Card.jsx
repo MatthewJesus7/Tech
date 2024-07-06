@@ -1,32 +1,29 @@
-import Colors from "../items/Colors";
+import React from 'react';
+import Colors from '../items/Colors'
 
-function Card({ title, price, backgroundImage, customclass, link, target, rel, type, typeInner  }) {
-
-    function typeInnerCard() {
-        if(typeInner === 'a') {
-            console.log('funciona')
-            return true
-        } else {
-            // 192.168.0.119
-            console.log('não funciona')
-        }
+const Card = ({ link, target, rel, type, customclass, backgroundImage, typeInner, title, price }) => {
+  // Função para renderizar conteúdo condicionalmente dentro do card
+  const typeInnerCard = () => {
+    if (typeInner === 'product') {
+      return <Colors />;
     }
+    
+  };
 
-    return(
-        <a href={link} target={target} rel={rel}>
-            <div
-                className={`${type} bg-white ${customclass}`}
-
-                style={{ backgroundImage: backgroundImage, backgroundSize: 'cover', backgroundPosition: 'center' }}
-            >
-                <div className={typeInner}>
-                    {typeInnerCard && <Colors/>} 
-                    <h3 className="text-xl">{title}</h3>
-                    <p className="text-lg">{price}</p>
-                </div>
-            </div>
-        </a>
-    );
-}
+  return (
+    <a href={link} target={target} rel={rel}>
+      <div
+        className={`${type} bg-white ${customclass}`}
+        style={{ backgroundImage: backgroundImage, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      >
+        <div className={typeInner}>
+          {typeInnerCard()}
+          <h3 className="text-xl mt-5">{title}</h3>
+          <p className="text-lg">{price}</p>
+        </div>
+      </div>
+    </a>
+  );
+};
 
 export default Card;

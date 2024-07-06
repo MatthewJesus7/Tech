@@ -6,8 +6,15 @@ import Card from './Card';
 import CarouselButton from "../items/Buttons/CarouselButton";
 
 function Carousel({ items, customclass }) {
+    const itemWidth = 256;  // Defina a largura do item
+    const marginWidth = 20; // Defina a margem do item
     const carouselRef = useRef(null);
     const [showButton, setShowButton] = useState(false);
+
+    const scrollByOneCard = (direction) => {
+        const scrollAmount = direction === 'left' ? -(itemWidth + marginWidth) : (itemWidth + marginWidth);
+        carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    };
 
     function handleMouseOver() {
         setShowButton(true);
@@ -22,7 +29,7 @@ function Carousel({ items, customclass }) {
     };
 
     const handleTouchMove = () => {
-        // Aqui você pode adicionar lógica se necessário para o movimento de toque
+        // Adicione lógica se necessário para o movimento de toque
     };
 
     const handleTouchEnd = () => {
@@ -30,14 +37,15 @@ function Carousel({ items, customclass }) {
     };
 
     return (
-        <Container customclass={`w-[109%] overflow-x-hidden p-5 px-2.5 -ml-2.5 ${customclass}`}>
+        <Container customclass={`w-[110%] overflow-x-hidden p-5 px-2.5 -ml-2.5 ${customclass}`}>
             <div
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
                 className="w-full relative cursor-pointer">
                 <div
-                    className="flex transition-transform duration-500 overflow-x-auto snap-x snap-mandatory"
-                    ref={carouselRef} 
+                    className="flex transition-transform duration-500 md:overflow-hidden p-2.5
+                    overflow-x-auto snap-x snap-mandatory"
+                    ref={carouselRef}
                     onTouchStart={handleTouchStart}
                     onTouchMove={handleTouchMove}
                     onTouchEnd={handleTouchEnd}
@@ -60,8 +68,8 @@ function Carousel({ items, customclass }) {
 
                 {showButton && (
                     <>
-                        <CarouselButton customclass="left-5" text={<IoIosArrowBack />} onLeft={() => { carouselRef.current.scrollBy({ left: -carouselRef.current.clientWidth, behavior: 'smooth' }) }} />
-                        <CarouselButton customclass="right-5" text={<IoIosArrowForward />} onRight={() => { carouselRef.current.scrollBy({ left: carouselRef.current.clientWidth, behavior: 'smooth' }) }} />
+                        <CarouselButton customclass="left-5" text={<IoIosArrowBack />} onLeft={() => scrollByOneCard('left')} />
+                        <CarouselButton customclass="right-5" text={<IoIosArrowForward />} onRight={() => scrollByOneCard('right')} />
                     </>
                 )}
             </div>
