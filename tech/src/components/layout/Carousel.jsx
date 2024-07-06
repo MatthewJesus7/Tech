@@ -6,24 +6,7 @@ import Card from './Card';
 import CarouselButton from "../items/Buttons/CarouselButton";
 
 function Carousel({ items, customclass }) {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const itemWidth = 256;
-    const marginWidth = 20;
-    
     const carouselRef = useRef(null);
-    const touchStartX = useRef(0);
-    const touchEndX = useRef(0);
-
-    const goToPreviousSlide = () => {
-        const index = (currentIndex - 1 + items.length) % items.length;
-        setCurrentIndex(index);
-    };
-
-    const goToNextSlide = () => {
-        const index = (currentIndex + 1) % items.length;
-        setCurrentIndex(index);
-    };
-
     const [showButton, setShowButton] = useState(false);
 
     function handleMouseOver() {
@@ -34,71 +17,52 @@ function Carousel({ items, customclass }) {
         setShowButton(false);
     }
 
-    const handlePrev = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
-    };
-
-    const handleNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
-    };
-
     const handleTouchStart = (e) => {
-        touchStartX.current = e.touches[0].clientX;
         carouselRef.current.style.transition = 'none';
     };
 
-    const handleTouchMove = (e) => {
-        const currentX = e.touches[0].clientX;
-        const diff = touchStartX.current - currentX;
-        touchEndX.current = currentX;
-        carouselRef.current.style.transform = `translateX(-${currentIndex * (itemWidth + marginWidth) + diff}px)`;
+    const handleTouchMove = () => {
+        // Aqui você pode adicionar lógica se necessário para o movimento de toque
     };
 
     const handleTouchEnd = () => {
-        const diff = touchStartX.current - touchEndX.current;
-
-        if (diff > 50) {
-            handleNext();
-        } else if (diff < -50) {
-            handlePrev();
-        }
-
         carouselRef.current.style.transition = ''; // Reaplica a transição após o swipe
-        carouselRef.current.style.transform = `translateX(-${currentIndex * (itemWidth + marginWidth)}px)`;
     };
 
     return (
-        <Container customclass={` w-[110%] overflow-x-hidden p-5 px-2.5 -ml-2.5 snap-mandatory ${customclass}`}>
+        <Container customclass={`w-[109%] overflow-x-hidden p-5 px-2.5 -ml-2.5 ${customclass}`}>
             <div
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
                 className="w-full relative cursor-pointer">
-                <div className="flex transition-transform duration-500 snap-start"
-                    style={{ transform: `translateX(-${currentIndex * (itemWidth + marginWidth)}px)` }}
+                <div
+                    className="flex transition-transform duration-500 overflow-x-auto snap-x snap-mandatory"
                     ref={carouselRef} 
                     onTouchStart={handleTouchStart}
                     onTouchMove={handleTouchMove}
-                    onTouchEnd={handleTouchEnd}>
+                    onTouchEnd={handleTouchEnd}
+                >
                     {items.map((item, index) => (
-                        <Card
-                            type={item.type}
-                            typeInner={item.typeInner}
-                            key={index}
-                            link={item.link}
-                            target={item.target}
-                            rel={item.rel}
-                            title={item.title}
-                            price={item.price}
-                            backgroundImage={item.backgroundImage}
-                        />
+                        <div key={index} className="snap-start">
+                            <Card
+                                type={item.type}
+                                typeInner={item.typeInner}
+                                link={item.link}
+                                target={item.target}
+                                rel={item.rel}
+                                title={item.title}
+                                price={item.price}
+                                backgroundImage={item.backgroundImage}
+                            />
+                        </div>
                     ))}
                 </div>
 
-                {showButton && currentIndex > 0 && (
-                    <CarouselButton customclass="left-5" text={<IoIosArrowBack />} onLeft={goToPreviousSlide} />
-                )}
-                {showButton && currentIndex < items.length - 1 && (
-                    <CarouselButton customclass="right-5" text={<IoIosArrowForward />} onRight={goToNextSlide} />
+                {showButton && (
+                    <>
+                        <CarouselButton customclass="left-5" text={<IoIosArrowBack />} onLeft={() => { carouselRef.current.scrollBy({ left: -carouselRef.current.clientWidth, behavior: 'smooth' }) }} />
+                        <CarouselButton customclass="right-5" text={<IoIosArrowForward />} onRight={() => { carouselRef.current.scrollBy({ left: carouselRef.current.clientWidth, behavior: 'smooth' }) }} />
+                    </>
                 )}
             </div>
         </Container>
