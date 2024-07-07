@@ -66,4 +66,12 @@
         @apply h-full;
         /* background-color: rgba(0, 0, 0, 0.200); */
     }
+
+    .carousel-hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .carousel-hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
 }

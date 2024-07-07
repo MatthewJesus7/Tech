@@ -13,6 +13,7 @@ function Carousel({ items, customclass }) {
 
     const scrollByOneCard = (direction) => {
         const scrollAmount = direction === 'left' ? -(itemWidth + marginWidth) : (itemWidth + marginWidth);
+
         carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     };
 
@@ -37,14 +38,14 @@ function Carousel({ items, customclass }) {
     };
 
     return (
-        <Container customclass={` w-[109%] overflow-x-hidden p-5 px-2.5 -ml-2.5 ${customclass}`}>
+        <Container customclass={` w-[110%] overflow-x-hidden p-5 px-2.5 -ml-2.5 ${customclass}`}>
             <div
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
                 className="w-full relative cursor-pointer">
                 <div
-                    className="flex transition-transform duration-500 md:overflow-hidden p-2.5
-                    overflow-x-auto snap-x snap-mandatory"
+                    className="flex transition-transform duration-500 md:overflow-hidden p-2.5 pb-6
+                    overflow-x-auto snap-x snap-mandatory carousel-hide-scrollbar"
                     ref={carouselRef}
                     onTouchStart={handleTouchStart}
                     onTouchMove={handleTouchMove}
