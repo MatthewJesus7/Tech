@@ -38,11 +38,13 @@ function CardSection() {
     ];
 
     return( 
-        <Section customclass=" bg-gray-50 py-3 ">
+        <Section customclass=" bg-gray-50 py-3 -mt-28 ">
 
             <h2>Veja Nossos Favoritos</h2>
 
-            <Carousel items={carouselItems}></Carousel>
+            <Carousel items={carouselItems}
+            customclass="w-[110%]"
+            ></Carousel>
 
         </Section>
     )
