@@ -38,13 +38,14 @@ function Carousel({ items, customclass }) {
     };
 
     return (
-        <Container customclass={` w-[110%] overflow-x-hidden p-5 px-2.5 -ml-2.5 ${customclass}`}>
+        <Container
+        customclass={` w-110 overflow-x-hidden p-5 px-2.5 -ml-2.5 ${customclass}`}>
             <div
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
                 className="w-full relative cursor-pointer">
                 <div
-                    className="flex transition-transform duration-500 md:overflow-hidden p-2.5 pb-6
+                    className="flex transition-transform duration-500 p-2.5 pb-6 w-full
                     overflow-x-auto snap-x snap-mandatory carousel-hide-scrollbar"
                     ref={carouselRef}
                     onTouchStart={handleTouchStart}
