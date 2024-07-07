@@ -1,6 +1,7 @@
 import HeroSection from "./components/sections/HeroSection"
 import CardSection from "./components/sections/CardSection"
 import ProductTypeSection from "./components/sections/ProductTypeSection";
+import CtaSection from "./components/sections/CtaSection";
 
 import NavBar from "./components/layout/NavBar";
 import Menu from "./components/layout/Menu";
@@ -47,6 +48,7 @@ function App() {
       <HeroSection></HeroSection>
       <CardSection></CardSection>
       <ProductTypeSection></ProductTypeSection>
+      <CtaSection></CtaSection>
     </div>
   );
 }
