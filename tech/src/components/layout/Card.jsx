@@ -1,13 +1,12 @@
 import React from 'react';
 import Colors from '../items/Colors'
 
-const Card = ({ link, target, rel, type, customclass, backgroundImage, typeInner, title, price }) => {
-  // Função para renderizar conteúdo condicionalmente dentro do card
+const Card = ({ link, target, rel, type, customclass, backgroundImage, typeInner, title, price, colors }) => {
+
   const typeInnerCard = () => {
     if (typeInner === 'product') {
-      return <Colors />;
+      return <Colors colors={colors}/>;
     }
-    
   };
 
   return (
@@ -18,8 +17,8 @@ const Card = ({ link, target, rel, type, customclass, backgroundImage, typeInner
       >
         <div className={typeInner}>
           {typeInnerCard()}
-          <h3 className="text-xl mt-5">{title}</h3>
-          <p className="text-lg">{price}</p>
+          <h3 className="text-xl">{title}</h3>
+          <p className="text-lg mt-1.5">{price}</p>
         </div>
       </div>
     </a>

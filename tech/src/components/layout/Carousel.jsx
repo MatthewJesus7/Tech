@@ -6,8 +6,8 @@ import Card from './Card';
 import CarouselButton from "../items/Buttons/CarouselButton";
 
 function Carousel({ items, customclass }) {
-    const itemWidth = 256;  // Defina a largura do item
-    const marginWidth = 20; // Defina a margem do item
+    const itemWidth = 256;
+    const marginWidth = 20;
     const carouselRef = useRef(null);
     const [showButton, setShowButton] = useState(false);
 
@@ -37,7 +37,7 @@ function Carousel({ items, customclass }) {
     };
 
     return (
-        <Container customclass={`w-[110%] overflow-x-hidden p-5 px-2.5 -ml-2.5 ${customclass}`}>
+        <Container customclass={` w-[109%] overflow-x-hidden p-5 px-2.5 -ml-2.5 ${customclass}`}>
             <div
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
@@ -51,7 +51,7 @@ function Carousel({ items, customclass }) {
                     onTouchEnd={handleTouchEnd}
                 >
                     {items.map((item, index) => (
-                        <div key={index} className="snap-start">
+                        <div key={index}>
                             <Card
                                 type={item.type}
                                 typeInner={item.typeInner}
@@ -61,6 +61,7 @@ function Carousel({ items, customclass }) {
                                 title={item.title}
                                 price={item.price}
                                 backgroundImage={item.backgroundImage}
+                                colors={item.colors}
                             />
                         </div>
                     ))}
@@ -68,8 +69,14 @@ function Carousel({ items, customclass }) {
 
                 {showButton && (
                     <>
-                        <CarouselButton customclass="left-5" text={<IoIosArrowBack />} onLeft={() => scrollByOneCard('left')} />
-                        <CarouselButton customclass="right-5" text={<IoIosArrowForward />} onRight={() => scrollByOneCard('right')} />
+                        <CarouselButton
+                        customclass="left-5 cPrev"
+                        text={<IoIosArrowBack />}
+                        onLeft={() => scrollByOneCard('left')} />
+
+                        <CarouselButton
+                        customclass="right-5 cNext"
+                        text={<IoIosArrowForward />} onRight={() => scrollByOneCard('right')} />
                     </>
                 )}
             </div>

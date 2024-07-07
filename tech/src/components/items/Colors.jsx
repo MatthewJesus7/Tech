@@ -1,13 +1,16 @@
-import Color from "./Color"
+import Color from "./Color";
 
-function Colors() {
+function Colors({ colors = [] }) {
     return(
-        <div className="flex justify-center">
-            <Color></Color>
-            <Color></Color>
-            <Color></Color>
-            <Color></Color>
-            <Color></Color>
+        <div className="flex justify-center mb-6">
+
+            {colors.map((color, index) => (
+                <Color
+                    key={index}
+                    color={color}
+                />
+            ))}
+
         </div>
     )
 }

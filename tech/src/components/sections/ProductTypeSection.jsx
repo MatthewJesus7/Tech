@@ -41,23 +41,26 @@ function ProductTypeSection() {
             // link: "#",
             type: "card",
             typeInner: 'product',
-            title: "celular x",
+            title: "celular cor",
             price: "a partir de $10.00",
-            backgroundImage: "url('/path/to/image1.jpg')"
+            backgroundImage: "url('/path/to/image1.jpg')",
+            color: "bg-red-500",
+            colors: ['bg-red-500'],
         },
         {
             type: "card",
             typeInner: 'product',
             title: "Item 2",
             price: "$20.00",
-            backgroundImage: "url('/path/to/image2.jpg')"
+            backgroundImage: "url('/path/to/image2.jpg')",
+            colors: ['bg-red-500', 'bg-blue-500', 'bg-green-500', 'bg-yellow-500'],
         },
         {
             type: "card",
             typeInner: 'product',
             title: "Item 3",
             price: "$30.00",
-            backgroundImage: "url('/path/to/image3.jpg')"
+            backgroundImage: "url('/path/to/image3.jpg')",
         },
         {
             type: "card",
@@ -84,3 +87,28 @@ function ProductTypeSection() {
 }
 
 export default ProductTypeSection
+
+// import React from 'react';
+// import Card from './Card';
+
+// const App = () => {
+//   const cardData = {
+//     title: 'Meu Produto',
+//     price: '$19.99',
+//     backgroundImage: 'url_da_imagem',
+//     colors: ['bg-red-500', 'bg-blue-500', 'bg-green-500', 'bg-yellow-500'],
+//   };
+
+//   return (
+//     <div className="p-10">
+//       <Card 
+//         title={cardData.title} 
+//         price={cardData.price} 
+//         backgroundImage={cardData.backgroundImage} 
+//         colors={cardData.colors} 
+//       />
+//     </div>
+//   );
+// };
+
+// export default App;

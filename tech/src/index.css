@@ -44,7 +44,13 @@
         @apply shadow-lg; 
         @apply border rounded-md; 
         @apply mr-5; 
+        @apply mb-5;
         @apply p-px;
+    }
+
+    .small_card h3{
+        @apply mt-16;
+        @apply text-sm;
     }
 
     h2 {
