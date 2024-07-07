@@ -7,7 +7,7 @@ function CtaSection() {
     return(
         <Section>
             <p>a</p>
-            <Card customclass="full_card">
+            <Card customclass="card">
             </Card>
         </Section>
     )
