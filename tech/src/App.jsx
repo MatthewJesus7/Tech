@@ -2,11 +2,16 @@ import HeroSection from "./components/sections/HeroSection"
 import CardSection from "./components/sections/CardSection"
 import ProductTypeSection from "./components/sections/ProductTypeSection";
 import CtaSection from "./components/sections/CtaSection";
+import PartnersSection from "./components/sections/PartnersSection";
 
 import NavBar from "./components/layout/NavBar";
+import Footer from "./components/layout/Footer";
 import Menu from "./components/layout/Menu";
+import Search from "./components/layout/MenuInner/Search";
+import Cart from "./components/layout/MenuInner/Cart"
 
 import { useState } from "react";
+
 
 function App() {
 
@@ -28,10 +33,23 @@ function App() {
       }
   };
 
+  // const [toggleSearch, setToggleSearch] = useState(false);
+  // const [toggleCart, setToggleCart] = useState(false);
+
+  // function toggleInnerMenu() {
+  //   // toggleCart
+  //   // toggleSearch
+  // }
 
   return (
     <div className="App overflow-x-hidden">
-      <NavBar handleOnClick={toggleMenu}></NavBar>
+      <NavBar handleOnClick={toggleMenu
+      // && toggleInnerMenu
+    }
+      // cSearch={setToggleSearch = () => true}
+      // cCart={toggleCart}
+      >
+      </NavBar>
 
       <Menu
         handleOnClick={toggleMenu}
@@ -44,11 +62,16 @@ function App() {
                 ? '  h-10 border-none -translate-y-1 '
                 : ' -translate-y-1 bg-white h-0 border-none '
         }`}
-      />
+      >
+        {/* <Search></Search>
+        <Cart></Cart> */}
+      </Menu>
       <HeroSection></HeroSection>
       <CardSection></CardSection>
       <ProductTypeSection></ProductTypeSection>
       <CtaSection></CtaSection>
+      <PartnersSection></PartnersSection>
+      <Footer></Footer>
     </div>
   );
 }

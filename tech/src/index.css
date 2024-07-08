@@ -19,6 +19,18 @@
         @apply text-gray-700;
     }
 
+    .partner{
+        @apply w-24; 
+        @apply h-10; 
+        @apply shadow-md; 
+        @apply border rounded-md; 
+        @apply mr-5;
+        @apply cursor-pointer;
+        @apply ease-out; 
+        @apply duration-300; 
+        @apply hover:scale-105; 
+    }
+
     .card {
         @apply min-w-64; 
         @apply h-96; 

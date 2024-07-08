@@ -3,7 +3,7 @@ import Container from './Container'
 
 import { IoIosSearch } from "react-icons/io";
 
-function NavBar({ handleOnClick }) {
+function NavBar({ handleOnClick, cCart, cSearch }) {
 
     return(
         <nav className="fixed h-10 justify-center content-center border w-full glass z-10">
@@ -23,11 +23,17 @@ function NavBar({ handleOnClick }) {
                     </li>
                     
                     <li>
-                        <Link href="#" target="_blank" text="Carrinho"></Link>
+                        <Link onClick={handleOnClick
+                        // && cCart
+                        }
+                        text="Carrinho">
+                        </Link>
                     </li>
 
                     <li>
-                        <Link onClick={handleOnClick} 
+                        <Link onClick={handleOnClick
+                        // && cSearch
+                    }
                         text={<IoIosSearch/>}
                         textCustom=" text-lg pt-1 "
                         ></Link>
