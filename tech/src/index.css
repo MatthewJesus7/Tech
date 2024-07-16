@@ -31,8 +31,21 @@
         @apply hover:scale-105; 
     }
 
+    .big_card {
+        @apply w-full;
+        @apply max-w-[808px];
+        @apply h-96; 
+        @apply shadow-lg; 
+        @apply border rounded-xl; 
+        @apply p-5;
+        @apply mr-5;
+        @apply ease-out; 
+        @apply duration-300; 
+        @apply hover:scale-105; 
+    }
+
     .card {
-        @apply min-w-64; 
+        @apply w-64; 
         @apply h-96; 
         @apply shadow-lg; 
         @apply border rounded-xl; 
@@ -92,4 +105,8 @@
         backdrop-filter: blur( 20px );
         -webkit-backdrop-filter: blur( 20px );
     }
+
+    /* .blur-background {
+        filter: blur(5px);
+    } */
 }

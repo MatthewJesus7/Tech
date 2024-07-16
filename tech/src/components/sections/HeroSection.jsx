@@ -1,8 +1,8 @@
 import Section from "./Section"
 
-function HeroSection() {
+function HeroSection({ customclass }) {
     return(
-        <Section customclass=" block md:flex h-[600px] pt-10">
+        <Section customclass={` block md:flex h-[600px] pt-10 ${customclass}`}>
 
             <article className="p-[10%]">
 

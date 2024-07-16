@@ -1,7 +1,10 @@
-import Section from "./Section"
+import HalfHeroSection from "../sections/HalfHeroSection"
+import Section from "../sections/Section";
+import Container from "../layout/Container";
 import Carousel from "../layout/Carousel"
+import Card from "../layout/Card";
 
-function CardSection() {
+function Product() {
 
     const carouselItems = [
         {
@@ -37,16 +40,29 @@ function CardSection() {
         }
     ];
 
-    return( 
-        <Section customclass=" bg-gray-50 py-3 -mt-28 ">
+    return(
+        <div>
+            <HalfHeroSection></HalfHeroSection>
+            <Section>
+                <Carousel items={carouselItems}
+                ></Carousel>
+            </Section>
+            
+            <Section customclass=" flex flex-wrap ">
 
-            <h2>Veja Nossos Favoritos</h2>
+                <div className="w-full max-w-[868px] mr-5 mb-5">
+                    <Card customclass=" big_card "></Card>
+                </div>
 
-            <Carousel items={carouselItems}
-            ></Carousel>
+                <Card customclass="card mb-5"></Card>
+                <Card customclass="card mb-5"></Card>
+                <Card customclass="card mb-5"></Card>
+                <Card customclass="card mb-5"></Card>
 
-        </Section>
+            </Section>
+            
+        </div>
     )
 }
 
-export default CardSection
+export default Product
