@@ -3,39 +3,6 @@ import Carousel from "../layout/Carousel";
 
 function ProductTypeSection() {
 
-    const carouselTypes = [
-        {
-            // link: "#",
-            type: "small_card",
-            title: "celular x",
-            backgroundImage: "url('/path/to/image1.jpg')"
-        },
-        {
-            // link: "#",
-            type: "small_card",
-            title: "celular x",
-            backgroundImage: "url('/path/to/image1.jpg')"
-        },
-        {
-            // link: "#",
-            type: "small_card",
-            title: "celular x",
-            backgroundImage: "url('/path/to/image1.jpg')"
-        },
-        {
-            // link: "#",
-            type: "small_card",
-            title: "celular x",
-            backgroundImage: "url('/path/to/image1.jpg')"
-        },
-        {
-            // link: "#",
-            type: "small_card",
-            title: "celular x",
-            backgroundImage: "url('/path/to/image1.jpg')"
-        },
-    ]
-
     const carouselItems = [
         {
             // link: "#",
@@ -80,7 +47,6 @@ function ProductTypeSection() {
 
     return(
         <Section customclass="py-3">
-            <Carousel items={carouselTypes} customclass=" mb-3 "/>
             <Carousel items={carouselItems}/>
         </Section>
     )

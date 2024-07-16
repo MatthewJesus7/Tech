@@ -38,7 +38,6 @@
         @apply shadow-lg; 
         @apply border rounded-xl; 
         @apply p-5;
-        @apply mr-5;
         @apply ease-out; 
         @apply duration-300; 
         @apply hover:scale-105; 
@@ -49,19 +48,26 @@
         @apply h-96; 
         @apply shadow-lg; 
         @apply border rounded-xl; 
-        @apply mr-5; 
+        @apply mx-2.5; 
         @apply p-5; 
         @apply ease-out; 
         @apply duration-300; 
         @apply hover:scale-105; 
     }
 
+    /* Mude o tamanho dos medium cards ate a largura 500px -> full */
+
     .medium_card {
-        @apply size-44;
+        @apply max-[500px]:w-full; 
+        @apply w-52;
+        @apply h-72;
         @apply shadow-lg; 
-        @apply border rounded-xl; 
-        @apply mr-5; 
-        @apply p-1.5;
+        @apply border rounded-xl;
+        @apply mx-0.5; 
+        @apply p-5;
+        @apply ease-out; 
+        @apply duration-300; 
+        @apply hover:scale-105; 
     }
 
     .small_card {
@@ -87,8 +93,6 @@
         @apply flex;
         @apply flex-col;
         @apply justify-end;
-        @apply w-full;
-        @apply h-full;
         /* background-color: rgba(0, 0, 0, 0.200); */
     }
 

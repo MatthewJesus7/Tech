@@ -8,7 +8,7 @@ function App() {
         <div className={`App overflow-x-hidden`}>
 
           <Layout>
-            {/* <Main></Main> */}
+            <Main></Main>
             <Product></Product>
           </Layout>
           
